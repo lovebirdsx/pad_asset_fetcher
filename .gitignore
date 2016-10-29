@@ -1,3 +1,4 @@
 asset
 raw
 *.pyc
+*workspace

@@ -28,7 +28,8 @@ do
 	mons_file=$(printf "mons_%03d.bc" "$mon_id")
     mon_url="$exlist/$mons_file"
     output_file="$raw_mons_dir/$mons_file"
-    if ! (ls "$output_file" 1> /dev/null 2>&1;) then
+    res_file=$(printf "$mons_outdir/MONS_%05d.PNG" "$mon_id")
+    if ! (ls "$res_file" 1> /dev/null 2>&1;) then
         echo "fetch $mons_file"
         curl -# --output "$output_file" "$mon_url"
         python "PADTextureTool.py" "$output_file" --outdir "$mons_outdir"
@@ -42,7 +43,8 @@ do
     card_file=$(printf "cards_%03d.bc" "$card_id")
     card_url="$exlist/$card_file"
     output_file="$raw_cards_dir/$card_file"
-    if ! (ls "$output_file" 1> /dev/null 2>&1;) then
+    res_file=$(printf "$cards_outdir/CARDS_%03d.png" "$card_id")
+    if ! (ls "$res_file" 1> /dev/null 2>&1;) then
         echo "fetch $card_file"
         curl -# --output "$output_file" "$card_url"
         python "PADTextureTool.py" "$output_file" --outdir "$cards_outdir"
