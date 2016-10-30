@@ -1,4 +1,6 @@
 asset
 raw
+cards
 *.pyc
 *workspace
+test.sh
